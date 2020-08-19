@@ -1,0 +1,10 @@
+**/__pycache__
+**/.dockerignore
+**/.gitignore
+**/.ipynb_checkpoints
+**/.vscode
+**/docker-compose*
+**/Dockerfile*
+README.md
+LICENSE
+Makefile
