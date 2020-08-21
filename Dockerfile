@@ -40,7 +40,8 @@ RUN git clone --depth=1 https://github.com/ctrlpvim/ctrlp.vim && \
     git clone --depth=1 https://github.com/frazrepo/vim-rainbow && \
     git clone --depth=1 https://github.com/airblade/vim-gitgutter && \
     git clone --depth=1 https://github.com/derekwyatt/vim-scala && \
-    git clone --depth=1 https://github.com/hashivim/vim-terraform.git
+    git clone --depth=1 https://github.com/hashivim/vim-terraform.git && \
+    git clone --depth=1 https://github.com/lifepillar/vim-solarized8.git
 
 # Setup my $SHELL
 ENV SHELL /bin/zsh
@@ -70,6 +71,10 @@ RUN python -m pip install -e git+https://github.com/pymc-devs/pymc3.git#egg=pymc
 # Import matplotlib the first time to build the font cache.
 RUN python -c "import matplotlib.pyplot"
 
+# Set working directory to /workspace
+WORKDIR /workspace
+
 COPY init_workspace.sh /bin/init_workspace.sh
+RUN chmod +x /bin/init_workspace.sh
 
 CMD ["/bin/init_workspace.sh"]
